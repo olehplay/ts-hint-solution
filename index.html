@@ -1,0 +1,123 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css"
+/>
+<style>
+  .button-container {
+    display: flex;
+    gap: 10px;
+  }
+
+  .button {
+    background-color: #ff8a00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 5px 12px;
+    font-family: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+
+  .button:hover,
+  .button:focus {
+    background-color: #d27204;
+  }
+  .block {
+    display: none;
+  }
+
+  #hint-block {
+    padding: 10px;
+    background-color: white;
+    margin-top: 20px;
+    background-color: white;
+    line-height: 1.5;
+    color: black;
+    font-family: inherit;
+    border: #4f5e77 solid;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  #solution-block {
+    margin-top: 20px;
+  }
+
+  .language-css .token.string,
+  .style .token.string,
+  .token.entity,
+  .token.operator,
+  .token.url {
+    background: none !important;
+  }
+  code {
+    color: crimson;
+    background-color: #e2e2e2;
+    padding-left: 4px;
+    padding-right: 5px;
+    border-radius: 4px;
+    font-family: Monaco, Ubuntu Mono, sans-serif;
+    font-size: 16px;
+  }
+</style>
+
+<div class="button-container">
+  <button id="btn-hint" class="button">Hint</button>
+  <button id="btn-solution" class="button">Solution</button>
+</div>
+
+<!-- ====== HINT ====== -->
+<div id="hint-block" class="block">
+  1. It is recommended to do ... <br />
+  2. Use such method <code>some code</code> text again <br />
+  3. Return the format <br />
+</div>
+
+<!-- ====== CODE ====== -->
+<div id="solution-block" class="block">
+  <pre><code class="language-typescript">
+function greet(person: string, date: Date): void {
+  console.log(`Hello ${person}, today is ${date.toDateString()}!`);
+}
+
+greet("Maddison", new Date());
+      </code></pre>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-typescript.min.js"></script>
+<script>
+  const hintBtn = document.getElementById("btn-hint");
+  const solutionBtn = document.getElementById("btn-solution");
+  const hintBlock = document.getElementById("hint-block");
+  const solutionBlock = document.getElementById("solution-block");
+
+  hintBtn.addEventListener("click", () => {
+    const hintBlockDisplay = getComputedStyle(hintBlock).display;
+    if (hintBlockDisplay === "none") {
+      hintBlock.style.display = "block";
+    } else {
+      hintBlock.style.display = "none";
+    }
+    solutionBlock.style.display = "none";
+  });
+
+  solutionBtn.addEventListener("click", () => {
+    const solutionBlockDisplay = getComputedStyle(solutionBlock).display;
+    if (solutionBlockDisplay === "none") {
+      solutionBlock.style.display = "block";
+    } else {
+      solutionBlock.style.display = "none";
+    }
+    hintBlock.style.display = "none";
+  });
+
+  Prism.highlightAll();
+</script>

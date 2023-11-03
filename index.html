@@ -70,8 +70,10 @@
 </style>
 
 <div class="button-container">
-  <button id="btn-hint" class="button">Hint</button>
-  <button id="btn-solution" class="button">Solution</button>
+  <button id="btn-hint" class="button" onclick="hintClick()">Hint</button>
+  <button id="btn-solution" class="button" onclick="solutionClick()">
+    Solution
+  </button>
 </div>
 
 <!-- ====== HINT ====== -->
@@ -94,35 +96,22 @@ greet("Maddison", new Date());
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-typescript.min.js"></script>
 <script>
-  Prism.highlightAll();
-
-  const hintBtn = document.getElementById("btn-hint");
-  const solutionBtn = document.getElementById("btn-solution");
-
   let hintClick = () => {
+    Prism.highlightAll();
     let solutionBlock = document.getElementById("solution-block");
     let hintBlock = document.getElementById("hint-block");
-    const hintBlockDisplay = getComputedStyle(hintBlock).display;
-    if (hintBlockDisplay === "none") {
-      hintBlock.style.display = "block";
-    } else {
-      hintBlock.style.display = "none";
-    }
+    let hintBlockDisplay = getComputedStyle(hintBlock).display;
+    hintBlock.style.display = hintBlockDisplay === "none" ? "block" : "none";
     solutionBlock.style.display = "none";
   };
 
   let solutionClick = () => {
+    Prism.highlightAll();
     let solutionBlock = document.getElementById("solution-block");
     let hintBlock = document.getElementById("hint-block");
-    const solutionBlockDisplay = getComputedStyle(solutionBlock).display;
-    if (solutionBlockDisplay === "none") {
-      solutionBlock.style.display = "block";
-    } else {
-      solutionBlock.style.display = "none";
-    }
+    let solutionBlockDisplay = getComputedStyle(solutionBlock).display;
+    solutionBlock.style.display =
+      solutionBlockDisplay === "none" ? "block" : "none";
     hintBlock.style.display = "none";
   };
-
-  hintBtn.addEventListener("click", hintClick);
-  solutionBtn.addEventListener("click", solutionClick);
 </script>

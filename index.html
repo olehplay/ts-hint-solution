@@ -2,72 +2,16 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"
 />
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css"
 />
-<style>
-  .button-container {
-    display: flex;
-    gap: 10px;
-  }
 
-  .button {
-    background-color: #ff8a00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    font-weight: 600;
-    border-radius: 30px;
-    padding: 5px 12px;
-    font-family: inherit;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-  }
-
-  .button:hover,
-  .button:focus {
-    background-color: #d27204;
-  }
-  .block {
-    display: none;
-  }
-
-  #hint-block {
-    padding: 10px;
-    background-color: white;
-    margin-top: 20px;
-    background-color: white;
-    line-height: 1.5;
-    color: black;
-    font-family: inherit;
-    border: #4f5e77 solid;
-    border-radius: 10px;
-    padding: 10px;
-  }
-
-  #solution-block {
-    margin-top: 20px;
-  }
-
-  .language-css .token.string,
-  .style .token.string,
-  .token.entity,
-  .token.operator,
-  .token.url {
-    background: none !important;
-  }
-  code {
-    color: crimson;
-    background-color: #e2e2e2;
-    padding-left: 4px;
-    padding-right: 5px;
-    border-radius: 4px;
-    font-family: Monaco, Ubuntu Mono, sans-serif;
-    font-size: 16px;
-  }
-</style>
+<link
+  rel="stylesheet"
+  href="https://codefinity-content-media-v2.s3.eu-west-1.amazonaws.com/courses/c1087363-9025-4c37-8d5e-983a32a007e9/buttons-section/hint-solution.css"
+/>
 
 <div class="button-container">
   <button id="btn-hint" class="button" onclick="hintClick()">Hint</button>
@@ -95,23 +39,4 @@ greet("Maddison", new Date());
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-typescript.min.js"></script>
-<script>
-  let hintClick = () => {
-    Prism.highlightAll();
-    let solutionBlock = document.getElementById("solution-block");
-    let hintBlock = document.getElementById("hint-block");
-    let hintBlockDisplay = getComputedStyle(hintBlock).display;
-    hintBlock.style.display = hintBlockDisplay === "none" ? "block" : "none";
-    solutionBlock.style.display = "none";
-  };
-
-  let solutionClick = () => {
-    Prism.highlightAll();
-    let solutionBlock = document.getElementById("solution-block");
-    let hintBlock = document.getElementById("hint-block");
-    let solutionBlockDisplay = getComputedStyle(solutionBlock).display;
-    solutionBlock.style.display =
-      solutionBlockDisplay === "none" ? "block" : "none";
-    hintBlock.style.display = "none";
-  };
-</script>
+<script src="https://codefinity-content-media-v2.s3.eu-west-1.amazonaws.com/courses/c1087363-9025-4c37-8d5e-983a32a007e9/buttons-section/hint-solution.js"></script>
